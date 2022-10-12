@@ -1,0 +1,19 @@
+version: "3"
+services:
+  soketi:
+    labels:
+        - traefik.enable=true
+        - traefik.http.services.soketi.loadbalancer.server.port=6001
+        - traefik.http.routers.soketi.entrypoints=web
+        - traefik.http.routers.soketi.rule=Host(`${HOSTNAME}`)
+        - traefik.http.middlewares.soketi-https-redirect.redirectscheme.scheme=websecure
+        - traefik.http.routers.soketi.middlewares=soketi-https-redirect
+        - traefik.http.routers.soketi-secure.entrypoints=websecure
+        - traefik.http.routers.soketi-secure.rule=Host(`${HOSTNAME}`)
+        - traefik.http.routers.soketi-secure.tls=true
+        - traefik.http.routers.soketi-secure.tls.certresolver=letsencrypt
+#Docker Networks
+networks:
+  default:
+    external:
+      name: ${NETWORK}

@@ -1,0 +1,10 @@
+{
+    "debug": false,
+    "appManager.array.apps": [
+        {
+            "id": "YOUR-CODE",
+            "key": "YOUR-KEY",
+            "secret": "YOUR-SECRET"
+        }
+    ]
+}

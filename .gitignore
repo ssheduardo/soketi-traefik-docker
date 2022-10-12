@@ -1,0 +1,7 @@
+traefik/.env
+traefik/traefik.yml
+traefik/users.txt
+traefik/acme.json
+
+soketi/.env
+soketi/config.json
